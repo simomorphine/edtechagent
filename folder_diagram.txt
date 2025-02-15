@@ -1,0 +1,50 @@
+# SuperTeacher: AI-Powered EdTech Platform
+
+## Project Overview
+SuperTeacher is a Flask-based EdTech platform designed using the Factory Pattern to ensure scalability and maintainability. It integrates AI-driven agents to automate evaluations and report generation, enhancing the learning experience for students and educators.
+
+## Folder Structure
+
+superteacher/
+│-- app/
+│   │-- __init__.py  # Application Factory
+│   │-- extensions.py  # Database, Cache, Authentication, etc.
+│   │-- routes.py  # API Endpoints
+│   │-- models.py  # Database Models
+│   │-- services/
+│   │   │-- __init__.py  # Service Initializer
+│   │   │-- user_service.py  # Business Logic for Users
+│   │   │-- auth_service.py  # Authentication Logic
+│   │   │-- evaluation_service.py  # Business Logic for Evaluations
+│   │   │-- report_service.py  # Report Generation Logic
+│   │   │-- ai_agents/
+│   │   │   │-- __init__.py  # AI Agents Initializer
+│   │   │   │-- user_agent.py  # AI Logic for User Interaction
+│   │   │   │-- evaluation_agent.py  # AI-Generated Evaluations
+│   │   │   │-- report_agent.py  # AI-Generated Reports
+│   │   │   │-- agent_manager.py  # Central AI Agent Manager
+│   │-- blueprints/
+│   │   │-- __init__.py  # Blueprint Initializer
+│   │   │-- user_blueprint.py  # User Endpoints
+│   │   │-- auth_blueprint.py  # Authentication Endpoints
+│   │   │-- evaluation_blueprint.py  # Evaluation Endpoints
+│   │   │-- report_blueprint.py  # Report Endpoints
+│   │-- utils/
+│   │   │-- helpers.py  # Helper Functions
+│   │   │-- validators.py  # Input Validators
+│   │-- config.py  # Configuration Settings
+│   │-- errors.py  # Custom Error Handlers
+│-- tests/
+│   │-- test_auth.py  # Authentication Tests
+│   │-- test_users.py  # User Tests
+│   │-- test_evaluations.py  # Evaluation Tests
+│   │-- test_reports.py  # Report Tests
+│-- migrations/  # Database Migrations
+│-- instance/
+│   │-- config.py  # Instance Configurations
+│-- requirements.txt  # Dependencies
+│-- .env  # Environment Variables
+|-- .flaskenv
+|-- .gitignore
+│-- wsgi.py  # WSGI Entry Point
+│-- manage.py  # CLI for Management Tasks

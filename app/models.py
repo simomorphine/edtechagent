@@ -5,8 +5,7 @@ from datetime import datetime
 import jwt
 from time import time
 from flask import current_app
-
-db = SQLAlchemy()
+from .extensions import db
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'

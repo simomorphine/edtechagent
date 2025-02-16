@@ -4,10 +4,21 @@ superteacher/
 │   │-- extensions.py  # Database, Cache, Authentication, etc.
 │   │-- routes.py  # API Endpoints
 │   │-- models.py  # Database Models
+│   │   │-- User
+│   │   │-- School
+│   │   │-- Preferences
+│   │   │-- Subject
+│   │   │-- Class
+│   │   │-- Schedule
+│   │   │-- Holiday
+│   │   │-- Student
+│   │   │-- StudentList
+│   │   │-- File
 │   │-- services/
 │   │   │-- __init__.py  # Service Initializer
 │   │   │-- user_service.py  # Business Logic for Users
 │   │   │-- auth_service.py  # Authentication Logic
+│   │   │-- preferences_service.py  # Business Logic for User Preferences
 │   │   │-- evaluation_service.py  # Business Logic for Evaluations
 │   │   │-- report_service.py  # Report Generation Logic
 │   │   │-- file_service.py  # File Management & Storage Logic
@@ -22,6 +33,7 @@ superteacher/
 │   │   │-- __init__.py  # Blueprint Initializer
 │   │   │-- user_blueprint.py  # User Endpoints
 │   │   │-- auth_blueprint.py  # Authentication Endpoints
+│   │   │-- preferences_blueprint.py  # User Preferences Endpoints
 │   │   │-- evaluation_blueprint.py  # Evaluation Endpoints
 │   │   │-- report_blueprint.py  # Report Endpoints
 │   │   │-- file_blueprint.py  # File Upload & Retrieval Endpoints
@@ -35,6 +47,7 @@ superteacher/
 │-- tests/
 │   │-- test_auth.py  # Authentication Tests
 │   │-- test_users.py  # User Tests
+│   │-- test_preferences.py  # Preferences Tests
 │   │-- test_evaluations.py  # Evaluation Tests
 │   │-- test_reports.py  # Report Tests
 │   │-- test_files.py  # File Management Tests

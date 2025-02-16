@@ -1,1 +1,51 @@
-/venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+
+# Environment variables
+.env
+*.env
+
+# Logs and databases
+instance/
+*.log
+*.sqlite3
+*.db
+
+# Flask cache and session files
+*.cache
+*.session
+
+# Pytest and coverage reports
+.coverage
+htmlcov/
+
+# VS Code settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+
+# Pip dependency files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Deployment files
+*.pem
+
+# Docker files
+docker-compose.override.yml
+
+# Ignore compiled Cython files
+*.c
+
+# Ignore migrations (optional if using Flask-Migrate)
+migrations/

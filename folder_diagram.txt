@@ -1,10 +1,3 @@
-# SuperTeacher: AI-Powered EdTech Platform
-
-## Project Overview
-SuperTeacher is a Flask-based EdTech platform designed using the Factory Pattern to ensure scalability and maintainability. It integrates AI-driven agents to automate evaluations and report generation, enhancing the learning experience for students and educators.
-
-## Folder Structure
-
 superteacher/
 │-- app/
 │   │-- __init__.py  # Application Factory
@@ -17,6 +10,8 @@ superteacher/
 │   │   │-- auth_service.py  # Authentication Logic
 │   │   │-- evaluation_service.py  # Business Logic for Evaluations
 │   │   │-- report_service.py  # Report Generation Logic
+│   │   │-- file_service.py  # File Management & Storage Logic
+│   │   │-- cms_service.py  # Content Management System Logic
 │   │   │-- ai_agents/
 │   │   │   │-- __init__.py  # AI Agents Initializer
 │   │   │   │-- user_agent.py  # AI Logic for User Interaction
@@ -29,9 +24,12 @@ superteacher/
 │   │   │-- auth_blueprint.py  # Authentication Endpoints
 │   │   │-- evaluation_blueprint.py  # Evaluation Endpoints
 │   │   │-- report_blueprint.py  # Report Endpoints
+│   │   │-- file_blueprint.py  # File Upload & Retrieval Endpoints
+│   │   │-- cms_blueprint.py  # Content Management System Endpoints
 │   │-- utils/
 │   │   │-- helpers.py  # Helper Functions
 │   │   │-- validators.py  # Input Validators
+│   │   │-- prompts.py  # Predefined AI Prompt Templates
 │   │-- config.py  # Configuration Settings
 │   │-- errors.py  # Custom Error Handlers
 │-- tests/
@@ -39,12 +37,14 @@ superteacher/
 │   │-- test_users.py  # User Tests
 │   │-- test_evaluations.py  # Evaluation Tests
 │   │-- test_reports.py  # Report Tests
+│   │-- test_files.py  # File Management Tests
+│   │-- test_cms.py  # Content Management Tests
 │-- migrations/  # Database Migrations
 │-- instance/
 │   │-- config.py  # Instance Configurations
 │-- requirements.txt  # Dependencies
 │-- .env  # Environment Variables
 |-- .flaskenv
-|-- .gitignore
+|-- .gitignore  # Git Ignore File
 │-- wsgi.py  # WSGI Entry Point
 │-- manage.py  # CLI for Management Tasks

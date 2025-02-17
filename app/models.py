@@ -13,21 +13,37 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password_hash = db.Column(db.String(128), nullable=False)
+    password_hash = db.Column(db.String(256), nullable=False)
+    role = db.Column(db.String(20), nullable=False, default='teacher')  # Default role is 'teacher'
     last_password_reset_request = db.Column(db.DateTime, nullable=True)
+
+    def __init__(self, username, email, password, role='teacher'):
+        self.username = username
+        self.email = email
+        self.set_password(password)
+        self.role = role
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-    
+
+    def is_superadmin(self):
+        return self.role == 'superadmin'
+
+    def is_admin(self):
+        return self.role in ['superadmin', 'admin']
+
+    def is_teacher(self):
+        return self.role == 'teacher'
+
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
             current_app.config['SECRET_KEY'], algorithm='HS256'
         )
-    
+
     @staticmethod
     def verify_reset_password_token(token):
         try:
@@ -35,9 +51,17 @@ class User(UserMixin, db.Model):
         except:
             return None
         return User.query.get(id)
-    
+
     def __repr__(self):
         return f"<User {self.username}>"
+
+# Ensure only one superadmin exists
+@db.event.listens_for(User, "before_insert")
+def prevent_multiple_superadmins(mapper, connection, target):
+    if target.role == "superadmin":
+        existing_superadmin = connection.execute(db.select(User).where(User.role == "superadmin")).fetchone()
+        if existing_superadmin:
+            raise ValueError("A superadmin already exists!")
 
 class School(db.Model):
     __tablename__ = 'schools'
